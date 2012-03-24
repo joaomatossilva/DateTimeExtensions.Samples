@@ -14,7 +14,7 @@
 <div class="box">
 	<h4>How long to... My birthday</h4>
 	<div class="box-container">
-		@using (Ajax.BeginForm("ToMyBirthday", new AjaxOptions(){ InsertionMode = InsertionMode.Replace, UpdateTargetId = "myBirthdayResult"})){
+		@using (Ajax.BeginForm("ToMyBirthday", new AjaxOptions() { InsertionMode = InsertionMode.Replace, UpdateTargetId = "myBirthdayResult", Url = Url.Action("ToMyBirthday") })) {
 			<span>When's your birthday?</span> 
 			@Html.TextBox("myBirthday", null, new { @class = "datepicker"})
 			<input type="submit" value="Show me how long"/>
