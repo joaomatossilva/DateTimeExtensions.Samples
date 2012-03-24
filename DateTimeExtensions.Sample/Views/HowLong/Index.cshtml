@@ -1,0 +1,25 @@
+﻿@{
+	ViewBag.Title = "How long to...";
+}
+
+<div class="box">
+	<h4>How long to... Christmas</h4>
+	<div class="box-container">
+		<div>
+			@Html.Action("ToChristmas")
+		</div>
+	</div>
+</div>
+
+<div class="box">
+	<h4>How long to... My birthday</h4>
+	<div class="box-container">
+		@using (Ajax.BeginForm("ToMyBirthday", new AjaxOptions(){ InsertionMode = InsertionMode.Replace, UpdateTargetId = "myBirthdayResult"})){
+			<span>When's your birthday?</span> 
+			@Html.TextBox("myBirthday", null, new { @class = "datepicker"})
+			<input type="submit" value="Show me how long"/>
+		}
+		<div id="myBirthdayResult">
+		</div>
+	</div>
+</div>
