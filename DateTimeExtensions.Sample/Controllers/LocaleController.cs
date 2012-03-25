@@ -7,13 +7,8 @@ using System.Web.Mvc;
 
 using DateTimeExtensions.Sample.Models;
 
-namespace DateTimeExtensions.Sample.Controllers
-{
-	public class LocaleController : Controller
-	{
-		//
-		// GET: /Locale/
-
+namespace DateTimeExtensions.Sample.Controllers {
+	public class LocaleController : Controller {
 		public ActionResult Index() {
 			var localeName = System.Threading.Thread.CurrentThread.CurrentCulture.Name;
 			ViewBag.Locale = localeName;
