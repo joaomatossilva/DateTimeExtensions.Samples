@@ -208,7 +208,7 @@ div#content {padding-top:25px;}
 	div#calendar-container h5 {background-image:url(images/icon-calendar.gif); background-repeat:no-repeat; display:block;}
 	div#calendar-container div.ui-datepicker-header {background:#a1b1b3; padding:10px; text-align:center;
 	position:relative; color:#fff; font-weight:bold; margin-bottom:1px;}
-	span.ui-icon {position:absolute; top:10px; cursor:pointer;}
+	span.ui-icon {position:absolute; cursor:pointer;}
 	.ui-icon-circle-triangle-e {right:10px;}
 	.ui-icon-circle-triangle-w {left:10px;}
 	a.ui-state-highlight {background:#fff;color:#ac0000; font-weight:bold;}

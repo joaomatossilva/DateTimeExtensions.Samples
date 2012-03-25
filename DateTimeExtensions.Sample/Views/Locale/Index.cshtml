@@ -1,3 +1,24 @@
 ﻿<div>
 	<span>Your current locale:</span> <span id="currentLocale">@ViewBag.Locale</span>
+	<div id="selectLocalePlaceHolder"></div>
 </div>
+<script type="text/javascript">
+
+    $("#selectLocalePlaceHolder").dialog({
+        title: "Select a Locale",
+        modal: true,
+        autoOpen: false,
+        width: "auto",
+        height: "auto",
+        resizable: false,
+        open: function () {
+            $("#selectLocalePlaceHolder").load("@Url.Action("SelectLocale")"); 
+        }
+    });
+    
+    $("#currentLocale").click(function() {
+        $("#selectLocalePlaceHolder").dialog("open");
+        return false;
+    });
+
+</script>
