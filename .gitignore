@@ -2,6 +2,6 @@
 *.suo
 *.nupkg
 _ReSharper.*
-/**/bin/**/*
-/**/obj/**/*
+bin/
+obj/
 packages/
