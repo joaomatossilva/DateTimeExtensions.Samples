@@ -9,11 +9,14 @@
 	</thead>
 	<tbody>
 		@foreach (var locale in Model) {
-		<tr class="odd">
-			<td>@Html.ActionLink(locale.LocaleName, "SetLocale", new { localeName = locale.LocaleName })</td>
-			<td>@locale.HasHolidays</td>
-			<td>@locale.HasNaturalText</td>
-		</tr>
-        }
+			<tr>
+				<td>@Html.ActionLink(locale.LocaleName, "SetLocale", new { localeName = locale.LocaleName })</td>
+				<td>@locale.HasHolidays</td>
+				<td>@locale.HasNaturalText</td>
+			</tr>
+		}
 	</tbody>
 </table>
+<script type="text/javascript">
+    $("table > tbody tr:odd").addClass("odd");
+</script>
