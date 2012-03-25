@@ -64,11 +64,11 @@ div#header {padding-top:20px;}
 		ul#menu li ul li a:hover {color:#fff; background-image:url(images/submenuhover.gif) !important;}
 		ul#menu li.selected a {background:#6c7275; color:#fff;}
 	
-	/** search form **/
-	div#header form {float:right; width:246px; margin-top:9px;}
-	div#header form fieldset legend {display:none;}
-	div#header form fieldset label#searchbox {display:block; background:url(images/bg-search.gif) no-repeat; height:21px; width:246px;}
-	div#header form fieldset label#searchbox input {background:none; border:none; outline:none; padding:4px 0 0 23px; color:#666; font-size:0.9em;}
+	/** locale form **/
+	div#localeChanger div {float:right; width:285px; }
+	div#localeChanger div span {color:#e0e0e0; text-decoration:none; padding:13px 15px 7px 15px; height:20px; display:inline-block; text-align:center; text-transform:uppercase; font-weight:bold;
+	background:url(images/bg-topnav-mask.gif) no-repeat 0 0; position:relative;}
+	div#localeChanger div span#currentLocale:hover { text-decoration: underline;cursor: pointer; }
 /** END OF HEADER **/
 
 /** CONTENT **/
@@ -208,7 +208,7 @@ div#content {padding-top:25px;}
 	div#calendar-container h5 {background-image:url(images/icon-calendar.gif); background-repeat:no-repeat; display:block;}
 	div#calendar-container div.ui-datepicker-header {background:#a1b1b3; padding:10px; text-align:center;
 	position:relative; color:#fff; font-weight:bold; margin-bottom:1px;}
-	span.ui-icon {position:absolute; top:10px; cursor:pointer;}
+	span.ui-icon {position:absolute; cursor:pointer;}
 	.ui-icon-circle-triangle-e {right:10px;}
 	.ui-icon-circle-triangle-w {left:10px;}
 	a.ui-state-highlight {background:#fff;color:#ac0000; font-weight:bold;}
