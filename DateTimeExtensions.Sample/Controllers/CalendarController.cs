@@ -34,7 +34,7 @@ namespace DateTimeExtensions.Sample.Controllers {
 		}
 
 		public ActionResult HolidaysList(int year) {
-			var holidays = dateTimeCultureInfo.GetHolidaysOfYear(year);
+			var holidays = dateTimeCultureInfo.Holidays;
 			var holidaysInstances = holidays.Select(h => new { date = h.GetInstance(year).HasValue ? h.GetInstance(year).Value.ToShortDateString() : null, holiday = h })
 				.ToDictionary(x => x.holiday, x => x.date);
 			return PartialView(holidaysInstances);
@@ -59,7 +59,7 @@ namespace DateTimeExtensions.Sample.Controllers {
 				yield return new DayViewModel {
 					DayText = i.ToString(),
 					IsWorkingDay = dateTimeCultureInfo.IsWorkingDay(day.DayOfWeek),
-					IsHoliday = dateTimeCultureInfo.GetHolidaysOfYear(year).Where(h => h.IsInstanceOf(day)).SingleOrDefault() != null
+					IsHoliday = dateTimeCultureInfo.GetHolidaysOfYear(year).Where(h => h.IsInstanceOf(day)).Count() > 0
 				};
 			}
 		}
