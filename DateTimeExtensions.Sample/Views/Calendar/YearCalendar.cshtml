@@ -1,6 +1,8 @@
 ﻿@model DateTimeExtensions.Sample.Models.Calendar.YearViewModel
 <div id="yearCalendar">
-
+    <div class="year-label">
+        <span >@Model.YearName</span>
+    </div>
     <ul id="months" class="sortable">
         @foreach (var month in Model.Months)
         {
@@ -13,6 +15,8 @@
 </div>
 
 <style>
+    .year-label { width: 100%; text-align: center;}
+    .year-label span {font-size: 1.7em; width: 100%;}
 .monthName { font-size: 1.5em;}
 .sortable { list-style-type: none; margin: 0; padding: 0; }
 .sortable li { margin: 0px 0px 0px 0; padding: 1px; float: left; }
