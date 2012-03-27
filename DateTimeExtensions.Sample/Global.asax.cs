@@ -20,6 +20,12 @@ namespace DateTimeExtensions.Sample {
 			routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
 			routes.MapRoute(
+				"Calendar", // Route name
+				"Calendar/{action}/{year}", // URL with parameters
+				new { controller = "Calendar", action = "Index", year = DateTime.Now.Year } // Parameter defaults
+			);
+
+			routes.MapRoute(
 				"Default", // Route name
 				"{controller}/{action}/{id}", // URL with parameters
 				new { controller = "HowLong", action = "Index", id = UrlParameter.Optional } // Parameter defaults
