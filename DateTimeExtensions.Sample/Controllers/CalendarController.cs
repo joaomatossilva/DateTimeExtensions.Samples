@@ -14,8 +14,18 @@ namespace DateTimeExtensions.Sample.Controllers
         //
         // GET: /Calendar/
 
-        public ActionResult Index()
+        public ActionResult Index(int year)
         {
+            var years = new List<int>();
+            for(int i = 0; i < 5; i++){
+                years.Add(DateTime.Now.Year -2 + i);
+            }
+            if (!years.Contains(year))
+            {
+                years.Add(year);
+            }
+            ViewBag.CurrentYear = year;
+            ViewBag.Years = years;
             return View();
         }
 

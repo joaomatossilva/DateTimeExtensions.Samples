@@ -5,8 +5,15 @@
 <div class="box">
 	<h4>My Year Calendar</h4>
 	<div class="box-container">
+        <div>
+            @using(Html.BeginForm("Index", "Calendar", FormMethod.Post)) {
+                @Html.Label("Select another year:")
+                @Html.DropDownList("year", new SelectList(ViewBag.Years, ViewBag.CurrentYear))
+                <input type="submit" value="Change Year" />
+            }
+        </div>
 		<div>
-			@Html.Action("YearCalendar", new { year = 2012 })
+			@Html.Action("YearCalendar", new { year = ViewBag.CurrentYear })
 		</div>
         <span class="clearFix"></span>
 	</div>
