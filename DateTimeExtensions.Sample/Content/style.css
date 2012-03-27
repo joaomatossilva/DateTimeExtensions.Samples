@@ -259,5 +259,5 @@ div#content {padding-top:25px;}
     #months li { width: 142px; height:150px; text-align: center; margin: 5px 8px 0px 8px; }
     #days li { width: 15px; height:15px; text-align: center; margin: 0px 0px 0px 0; }
     .dayOfWeek { font-weight: bold; }
-    .holiday { Color: Red; }
+    .holiday { color: Red !important;}
     .day { border: 1px LightGrey solid }
