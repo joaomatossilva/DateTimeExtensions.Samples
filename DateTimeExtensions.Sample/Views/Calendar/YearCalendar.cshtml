@@ -1,0 +1,29 @@
+﻿@model DateTimeExtensions.Sample.Models.Calendar.YearViewModel
+<div id="yearCalendar">
+
+    <ul id="months" class="sortable">
+        @foreach (var month in Model.Months)
+        {
+            <li>
+                @Html.Partial("Month", month)
+            </li>
+        }
+    </ul>
+
+</div>
+
+<style>
+.monthName { font-size: 1.5em;}
+.sortable { list-style-type: none; margin: 0; padding: 0; }
+.sortable li { margin: 0px 0px 0px 0; padding: 1px; float: left; }
+#months li { width: 142px; height:150px; text-align: center; margin: 5px 8px 0px 8px; }
+#days li { width: 15px; height:15px; text-align: center; margin: 0px 0px 0px 0; }
+.dayOfWeek { font-weight: bold; }
+.holiday { Color: Red; }
+.day { border: 1px LightGrey solid }
+</style>
+<script type="text/javascript">
+	$(function () {
+	    $(".sortable").selectable();
+	});
+</script>

@@ -1,0 +1,27 @@
+﻿@model DateTimeExtensions.Sample.Models.Calendar.MonthViewModel
+
+<div id="monthView">
+    <span class="monthName">@Model.Name</span>
+    <ul id="days" class="sortable">
+        <li class="ui-state-default dayOfWeek">S</li>
+        <li class="ui-state-default dayOfWeek">M</li>
+        <li class="ui-state-default dayOfWeek">T</li>
+        <li class="ui-state-default dayOfWeek">W</li>
+        <li class="ui-state-default dayOfWeek">T</li>
+        <li class="ui-state-default dayOfWeek">F</li>
+        <li class="ui-state-default dayOfWeek">S</li>
+        @for (int i = 0; i < Model.StartDayOffset; i++)
+        {
+            <li class="ui-state-active day">&nbsp;</li>
+        }
+        @foreach (var day in Model.Days)
+        {
+            <li class="@(day.IsWorkingDay ? "ui-state-active" : "ui-state-default") @(day.IsHoliday ? "holiday" : "") day">@day.DayText</li>
+        }
+        @for (int i = 0; i < Model.EndDaysOffset; i++)
+        {
+            <li class="ui-state-active day">&nbsp;</li>
+        }
+    </ul>
+
+</div>

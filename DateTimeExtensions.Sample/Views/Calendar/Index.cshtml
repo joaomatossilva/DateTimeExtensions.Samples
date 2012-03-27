@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "Calendar";
+}
+
+<div class="box">
+	<h4>My Year Calendar</h4>
+	<div class="box-container">
+		<div>
+			@Html.Action("YearCalendar", new { year = 2012 })
+		</div>
+        <span class="clearFix"></span>
+	</div>
+</div>
