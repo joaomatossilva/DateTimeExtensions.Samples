@@ -1,13 +1,23 @@
 ﻿@model IDictionary<DateTimeExtensions.Holiday, string>
 
 <div>
-    <span> Holidays Listing</span>
-    <ul>
-    @foreach (var item in Model) {
-        <li>
-            <span>@(item.Value != null ? item.Value : "(not observed)")</span> | 
-            <span>@item.Key.Name</span>
-        </li>
-    }
-    </ul>
+    <table class="table-short" id="holidaysListing">
+	    <thead>
+		    <tr>
+			    <td>Date</td>
+			    <td>Name</td>
+		    </tr>
+	    </thead>
+        <tbody>
+            @foreach (var item in Model) {
+                <tr>
+                    <td>@(item.Value != null ? item.Value : "(not observed)")</td>
+                    <td>@item.Key.Name</td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>
+<script type="text/javascript">
+    $("#holidaysListing > tbody tr:nth-child(odd)").addClass("odd");
+</script>
