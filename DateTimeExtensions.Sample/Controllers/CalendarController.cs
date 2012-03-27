@@ -33,6 +33,13 @@ namespace DateTimeExtensions.Sample.Controllers {
 			return PartialView(yearViewModel);
 		}
 
+		public ActionResult HolidaysList(int year) {
+			var holidays = dateTimeCultureInfo.GetHolidaysOfYear(year);
+			var holidaysInstances = holidays.Select(h => new { date = h.GetInstance(year).HasValue ? h.GetInstance(year).Value.ToShortDateString() : null, holiday = h })
+				.ToDictionary(x => x.holiday, x => x.date);
+			return PartialView(holidaysInstances);
+		}
+
 		private IEnumerable<MonthViewModel> BuildMonthsViewModel(int year) {
 			for (int i = 1; i <= 12; i++) {
 				var startMonthDate = new DateTime(year, i, 1);

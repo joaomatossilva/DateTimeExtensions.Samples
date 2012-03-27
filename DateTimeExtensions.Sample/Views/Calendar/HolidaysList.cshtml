@@ -1,0 +1,13 @@
+﻿@model IDictionary<DateTimeExtensions.Holiday, string>
+
+<div>
+    <span> Holidays Listing</span>
+    <ul>
+    @foreach (var item in Model) {
+        <li>
+            <span>@(item.Value != null ? item.Value : "(not observed)")</span> | 
+            <span>@item.Key.Name</span>
+        </li>
+    }
+    </ul>
+</div>
