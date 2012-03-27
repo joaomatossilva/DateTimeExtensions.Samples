@@ -21,7 +21,7 @@ namespace DateTimeExtensions.Sample {
 
 			routes.MapRoute(
 				"Calendar", // Route name
-				"{Calendar}/{action}/{year}", // URL with parameters
+				"Calendar/{action}/{year}", // URL with parameters
 				new { controller = "Calendar", action = "Index", year = DateTime.Now.Year } // Parameter defaults
 			);
 
