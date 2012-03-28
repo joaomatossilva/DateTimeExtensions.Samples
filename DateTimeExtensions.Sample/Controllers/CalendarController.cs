@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using DateTimeExtensions.Sample.Models.Calendar;
 using System.Globalization;
+using DateTimeExtensions.Sample.Services;
+using DateTimeExtensions.Sample.Models;
 
 namespace DateTimeExtensions.Sample.Controllers {
 	public class CalendarController : Controller {
@@ -38,6 +40,23 @@ namespace DateTimeExtensions.Sample.Controllers {
 			var holidaysInstances = holidays.Select(h => new { date = h.GetInstance(year).HasValue ? h.GetInstance(year).Value.ToShortDateString() : null, holiday = h })
 				.ToDictionary(x => x.holiday, x => x.date);
 			return PartialView(holidaysInstances);
+		}
+
+		public ActionResult VacationsSuggestions(int year) {
+			var vacationsService = new VacationsSuggestionsService(new DateTimeCultureInfo());
+			var suggestionsViewModel = vacationsService.GetSuggestions(year, 16)
+				.GroupBy(s => s.TotalDays)
+				.Select(t => new VacationsSuggestionsViewModel {
+					TotalDaysOff = t.Key,
+					Suggestions = t.OrderBy(p => p.Score)
+						.Select( p=> new VacationSuggestion {
+							StartDate = p.StartDate,
+							EndDate = p.EndDate,
+							VacationDaysSpent = p.WorkingDays
+						})
+				})
+				.OrderByDescending(t => t.TotalDaysOff);
+			return PartialView(suggestionsViewModel);
 		}
 
 		private IEnumerable<MonthViewModel> BuildMonthsViewModel(int year) {

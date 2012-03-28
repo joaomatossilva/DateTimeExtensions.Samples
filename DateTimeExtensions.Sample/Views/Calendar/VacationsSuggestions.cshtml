@@ -1,0 +1,44 @@
+﻿@model IEnumerable<DateTimeExtensions.Sample.Models.VacationsSuggestionsViewModel>
+<div id="suggestions">
+    @foreach (var suggestionDays in Model) {
+        <h3>
+            <a href="#">For @suggestionDays.TotalDaysOff days off</a></h3>
+        <div>
+            <table class="table-short" id="holidaysListing">
+                <thead>
+                    <tr>
+                        <td>
+                            Start Day
+                        </td>
+                        <td>
+                            End Day
+                        </td>
+                        <td>
+                            Vacation Days Spent
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var suggestion in suggestionDays.Suggestions) {
+                        <tr>
+                            <td>@suggestion.StartDate.ToShortDateString()
+                            </td>
+                            <td>@suggestion.EndDate.ToShortDateString()
+                            </td>
+                            <td>@suggestion.VacationDaysSpent
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>
+<script>
+    $(function () {
+        $("#suggestions").accordion({
+            autoHeight: false,
+            navigation: true
+        });
+    });
+</script>
