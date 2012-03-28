@@ -101,10 +101,10 @@ div#content {padding-top:25px;}
 	/** columns **/
 	div#left-col, div#mid-col, div#mid-right-col {float:left;}
 	div#left-col, div#mid-col {margin-right:12px;}
-	div#mid-col {width:510px;}
-	div#mid-right-col {width:743px;}
+	div#mid-col {width:410px;}
+	div#mid-right-col {width:693px;}
 	div#right-col {margin-right:0px; float:right;}
-	div#left-col, div#right-col {width:223px;}
+	div#left-col, div#right-col {width:273px;}
 	div.full-col {width:740px !important; margin-right:0px !important;}
 	
 	/** list links **/
@@ -178,7 +178,7 @@ div#content {padding-top:25px;}
 	a.heading-link:hover {color:#fff;}
 
 	/* tables */
-	table.table-short {width:500px; 	margin:-5px 0 0 -5px; border-collapse:collapse;	}
+	table.table-short {width:100%; 	margin:-5px 0 0 -5px; border-collapse:collapse;	}
 	table.table-long {width:740px; margin-left:-10px}
 	table.table-short td, table.table-long td {border-top:1px solid #dfdfdf; font-size:0.9em; 	padding:10px 0; margin:0; color:#666;}
 	table.table-short thead td, table.table-long thead td {font-weight:bold;}

@@ -16,8 +16,19 @@
 			@Html.Action("YearCalendar", new { year = ViewBag.CurrentYear })
 		</div>
         <span class="clearFix"></span>
-        <div>
-            @Html.Action("HolidaysList", new { year = ViewBag.CurrentYear })
-        </div>
 	</div>
+</div>
+
+<div class="box" id="left-col">
+	<h4>Holidays List</h4>
+    <div class="box-container">
+        @Html.Action("HolidaysList", new { year = ViewBag.CurrentYear })
+    </div>
+</div>
+
+<div class="box" id="mid-right-col">
+	<h4>Vacation Suggestions</h4>
+    <div class="box-container">
+        @Html.Action("VacationsSuggestions", new { year = ViewBag.CurrentYear })
+    </div>
 </div>
