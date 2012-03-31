@@ -47,18 +47,18 @@
 					<li>@Html.ActionLink("How long to...", "Index", "HowLong")</li>
 					<li>@Html.ActionLink("Calendar", "Index", "Calendar")</li>
 				</ul>
-				<div id="localeChanger">
-					@Html.Action("Index", "Locale")
-				</div>
-				<span class="clearFix"></span>
 			</div>
 			<div id="content">
 				<div id="content-top">
+                    <span class="clearFix"></span>
 					<h2>@ViewBag.Title</h2>
+    				<div id="localeChanger">
+                    					@Html.Action("Index", "Locale")
+                    </div>
 					<span class="clearFix"></span>
-				</div>
-				@RenderBody()
-			</div>
+                </div>
+			@RenderBody()			
+            </div>
 		</div>
 	</body>
 </html>

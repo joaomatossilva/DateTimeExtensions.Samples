@@ -65,9 +65,8 @@ div#header {padding-top:20px;}
 		ul#menu li.selected a {background:#6c7275; color:#fff;}
 	
 	/** locale form **/
-	div#localeChanger div {float:right; width:285px; }
-	div#localeChanger div span {color:#e0e0e0; text-decoration:none; padding:13px 15px 7px 15px; height:20px; display:inline-block; text-align:center; text-transform:uppercase; font-weight:bold;
-	background:url(images/bg-topnav-mask.gif) no-repeat 0 0; position:relative;}
+	div#localeChanger div {float:right; width:285px; margin-right: 150px; }
+	div#localeChanger div span {padding:13px 15px 7px 15px; height:20px; display:inline-block; text-align:center; font-weight:bold; position:relative;}
 	div#localeChanger div span#currentLocale:hover { text-decoration: underline;cursor: pointer; }
 /** END OF HEADER **/
 
@@ -75,7 +74,7 @@ div#header {padding-top:20px;}
 div#content {padding-top:25px;}
 
 	/** main heading of the page **/
-	div#content-top {border-bottom:1px solid #bcbcb7; padding-bottom:8px; margin-bottom:15px;}
+	div#content-top {padding-bottom:3px; margin-top:25px;}
 		div#content-top h2 {font-size:200%; font-weight:bold; color:#373d40; margin-left:12px; float:left;}
 		div#content-top a#topLink {float:right; background:url(images/icon-blue-arrow.gif) no-repeat; display:inline-block; 
 		padding-left:23px; text-decoration:none; font-weight:bold; color:#508db8; height:16px; margin-top:10px; margin-right:12px;}
