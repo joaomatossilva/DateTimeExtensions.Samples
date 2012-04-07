@@ -15,7 +15,8 @@
 		<div>
 			@Html.Action("YearCalendar", new { year = ViewBag.CurrentYear })
 		</div>
-        <span class="clearFix"></span>
+		<span class="clearFix"></span>
+        @Html.ActionLink("Export to Outlook", "ExportToFile", new { year = ViewBag.CurrentYearyear = ViewBag.CurrentYear })
 	</div>
 </div>
 

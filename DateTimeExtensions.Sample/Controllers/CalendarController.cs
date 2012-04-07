@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -7,6 +8,7 @@ using DateTimeExtensions.Sample.Models.Calendar;
 using System.Globalization;
 using DateTimeExtensions.Sample.Services;
 using DateTimeExtensions.Sample.Models;
+using DateTimeExtensions.Export;
 
 namespace DateTimeExtensions.Sample.Controllers {
 	public class CalendarController : Controller {
@@ -57,6 +59,16 @@ namespace DateTimeExtensions.Sample.Controllers {
 				})
 				.OrderByDescending(t => t.TotalDaysOff);
 			return PartialView(suggestionsViewModel);
+		}
+
+		public ActionResult ExportToFile(int year) {
+			var holFormat = ExportHolidayFormatLocator.LocateByType(ExportType.OfficeHolidays);
+			var memoryStream = new MemoryStream();
+			var writer = new StreamWriter(memoryStream);
+			holFormat.Export(new DateTimeCultureInfo(), year, writer);
+			writer.Flush();
+			memoryStream.Position = 0;
+			return File(memoryStream, "text/plain", "outlook.hol");
 		}
 
 		private IEnumerable<MonthViewModel> BuildMonthsViewModel(int year) {
