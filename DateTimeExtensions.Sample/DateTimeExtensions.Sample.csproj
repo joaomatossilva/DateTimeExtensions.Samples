@@ -75,6 +75,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Areas\Api\ApiAreaRegistration.cs" />
     <Compile Include="Controllers\CalendarController.cs" />
     <Compile Include="Controllers\HowLongController.cs" />
     <Compile Include="Controllers\LocaleController.cs" />
@@ -195,6 +196,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Calendar\VacationsSuggestions.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Api\Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Areas\Api\Controllers\" />
+    <Folder Include="Areas\Api\Models\" />
+    <Folder Include="Areas\Api\Views\Shared\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
