@@ -1,4 +1,6 @@
 ﻿using System.Web.Mvc;
+using System.Web.Http;
+using System.Web.Routing;
 
 namespace DateTimeExtensions.Sample.Areas.Api {
 	public class ApiAreaRegistration : AreaRegistration {
@@ -9,10 +11,10 @@ namespace DateTimeExtensions.Sample.Areas.Api {
 		}
 
 		public override void RegisterArea(AreaRegistrationContext context) {
-			context.MapRoute(
-				"Api_default",
-				"Api/{controller}/{action}/{id}",
-				new { action = "Index", id = UrlParameter.Optional }
+			context.Routes.MapHttpRoute(
+				"CalendarApi",
+				"Api/{controller}/{locale}/{year}",
+				new {  }
 			);
 		}
 	}
