@@ -23,7 +23,7 @@
 <div class="box" id="left-col">
 	<h4>Holidays List</h4>
     <div class="box-container">
-        @Html.Action("HolidaysList", new { year = ViewBag.CurrentYear })
+        @{ Html.RenderPartial("HolidaysList"); }
     </div>
 </div>
 

@@ -24,6 +24,7 @@ namespace DateTimeExtensions.Sample.Controllers {
 			if (!years.Contains(year)) {
 				years.Add(year);
 			}
+			ViewBag.Locale = System.Threading.Thread.CurrentThread.CurrentCulture.Name;
 			ViewBag.CurrentYear = year;
 			ViewBag.Years = years;
 			return View();
@@ -35,13 +36,6 @@ namespace DateTimeExtensions.Sample.Controllers {
 				Months = BuildMonthsViewModel(year)
 			};
 			return PartialView(yearViewModel);
-		}
-
-		public ActionResult HolidaysList(int year) {
-			var holidays = dateTimeCultureInfo.Holidays;
-			var holidaysInstances = holidays.Select(h => new { date = h.GetInstance(year).HasValue ? h.GetInstance(year).Value.ToShortDateString() : null, holiday = h })
-				.ToDictionary(x => x.holiday, x => x.date);
-			return PartialView(holidaysInstances);
 		}
 
 		public ActionResult VacationsSuggestions(int year) {
