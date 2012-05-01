@@ -29,7 +29,14 @@ namespace DateTimeExtensions.Sample.Controllers {
 				new SelectLocaleViewModel { LocaleName = "is-IS", HasHolidays = true },
 				new SelectLocaleViewModel { LocaleName = "nb-NO", HasHolidays = true },
 				new SelectLocaleViewModel { LocaleName = "nl-NL", HasHolidays = true },
-				new SelectLocaleViewModel { LocaleName = "sv-SE", HasHolidays = true }
+				new SelectLocaleViewModel { LocaleName = "sv-SE", HasHolidays = true },
+				new SelectLocaleViewModel { LocaleName = "es-AR", HasHolidays = true },
+				new SelectLocaleViewModel { LocaleName = "es-MX", HasHolidays = true },
+				new SelectLocaleViewModel { LocaleName = "en-AU", HasHolidays = true },
+				new SelectLocaleViewModel { LocaleName = "en-ZA", HasHolidays = true },
+				new SelectLocaleViewModel { LocaleName = "fr-CA", HasHolidays = true },
+				new SelectLocaleViewModel { LocaleName = "ar-SA", HasHolidays = true },
+				new SelectLocaleViewModel { LocaleName = "it-IT", HasHolidays = true }
 			};
 			return PartialView(locales);
 		}
