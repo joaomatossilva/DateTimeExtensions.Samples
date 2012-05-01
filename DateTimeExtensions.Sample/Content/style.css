@@ -260,3 +260,23 @@ div#content {padding-top:25px;}
     .dayOfWeek { font-weight: bold; }
     .holiday { color: Red !important;}
     .day { border: 1px LightGrey solid }
+
+/** API **/
+.api-description {
+    font-style: italic;
+}
+.api-params ul li
+{
+    margin-left: 20px;
+    line-height: 1.2em;
+    list-style: circle;
+}
+.api-params ul li span {
+    color: blue;
+    font-weight: bold;
+}
+.api-url {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin: 10px 0 10px 0;
+}
