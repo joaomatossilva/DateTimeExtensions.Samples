@@ -1,6 +1,4 @@
-﻿@model IDictionary<DateTimeExtensions.Holiday, string>
-
-<div>
+﻿<div>
     <table class="table-short" id="holidaysListing">
 	    <thead>
 		    <tr>
@@ -9,15 +7,24 @@
 		    </tr>
 	    </thead>
         <tbody>
-            @foreach (var item in Model) {
-                <tr>
-                    <td>@(item.Value != null ? item.Value : "(not observed)")</td>
-                    <td>@item.Key.Name</td>
-                </tr>
-            }
         </tbody>
     </table>
 </div>
 <script type="text/javascript">
-    $("#holidaysListing > tbody tr:nth-child(odd)").addClass("odd");
+
+    function getHolidaysObservances() {
+        $.getJSON("Api/HolidayObservances/@ViewBag.Locale/@ViewBag.CurrentYear",
+            function (data) {
+                $('#holidaysListing > tbody').empty();
+                $.each(data, function (key, val) {
+                    var row = '<td>' + val.ObservanceDate + '</td><td>' + val.Name + '</td>';
+                    $('<tr/>', { html: row })
+                        .appendTo($('#holidaysListing > tbody'));
+                });
+                $("#holidaysListing > tbody tr:nth-child(odd)").addClass("odd");
+            });
+    }
+
+    $(document).ready(getHolidaysObservances);
+
 </script>
