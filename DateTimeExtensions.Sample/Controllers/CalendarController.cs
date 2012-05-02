@@ -13,6 +13,7 @@ using DateTimeExtensions.Export;
 namespace DateTimeExtensions.Sample.Controllers {
 	public class CalendarController : Controller {
 		DateTimeCultureInfo dateTimeCultureInfo = new DateTimeCultureInfo();
+		private static readonly Calendar GregorianCalendar = new GregorianCalendar();
 		//
 		// GET: /Calendar/
 
@@ -78,13 +79,13 @@ namespace DateTimeExtensions.Sample.Controllers {
 		}
 
 		private IEnumerable<DayViewModel> BuildDaysForMonthViewModel(int year, int month) {
-			var daysInMonth = CultureInfo.CurrentCulture.Calendar.GetDaysInMonth(year, month);
+			var daysInMonth = GregorianCalendar.GetDaysInMonth(year, month);
 			for (int i = 1; i <= daysInMonth; i++) {
 				var day = new DateTime(year, month, i);
 				yield return new DayViewModel {
 					DayText = i.ToString(),
-					IsWorkingDay = dateTimeCultureInfo.IsWorkingDay(day.DayOfWeek),
-					IsHoliday = dateTimeCultureInfo.GetHolidaysOfYear(year).Where(h => h.IsInstanceOf(day)).Count() > 0
+					IsWorkingDay = day.IsWorkingDay(dateTimeCultureInfo),
+					IsHoliday = day.IsHoliday(dateTimeCultureInfo)
 				};
 			}
 		}
