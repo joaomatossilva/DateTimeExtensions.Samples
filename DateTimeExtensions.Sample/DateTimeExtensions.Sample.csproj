@@ -95,6 +95,7 @@
   <ItemGroup>
     <Compile Include="Areas\Api\ApiAreaRegistration.cs" />
     <Compile Include="Areas\Api\Controllers\HolidayObservancesController.cs" />
+    <Compile Include="Areas\Api\Controllers\TheBigDayController.cs" />
     <Compile Include="Areas\Api\Models\HolidayObservance.cs" />
     <Compile Include="Controllers\ApiDocsController.cs" />
     <Compile Include="Controllers\CalendarController.cs" />

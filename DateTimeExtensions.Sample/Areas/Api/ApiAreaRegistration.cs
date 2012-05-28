@@ -16,6 +16,12 @@ namespace DateTimeExtensions.Sample.Areas.Api {
 				"Api/{controller}/{locale}/{year}",
 				new {  }
 			);
+
+			context.Routes.MapHttpRoute(
+				"BigDayApi",
+				"Api/{controller}",
+				new { }
+			);
 		}
 	}
 }
