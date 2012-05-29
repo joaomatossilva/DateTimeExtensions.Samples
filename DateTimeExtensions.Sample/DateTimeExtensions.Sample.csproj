@@ -101,6 +101,7 @@
     <Compile Include="Controllers\CalendarController.cs" />
     <Compile Include="Controllers\HowLongController.cs" />
     <Compile Include="Controllers\LocaleController.cs" />
+    <Compile Include="Controllers\TheBigDayController.cs" />
     <Compile Include="Filters\CustomLocaleFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -224,6 +225,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\ApiDocs\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\TheBigDay\Index.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
