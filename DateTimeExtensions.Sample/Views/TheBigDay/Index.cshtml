@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "The Big Day";
+}
+
+<div class="box">
+    <h4>The Big Day</h4>
+    <div class="box-container" style="font-size: 50px; text-align: center;">
+        Faltam <span id="missingDays"></span>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    function getTheBigDay() {
+        $.getJSON("Api/TheBigDay",
+            function (data) {
+                $('#missingDays').empty();
+                $('#missingDays').html(data);
+            });
+    }
+    $(document).ready(getTheBigDay);
+
+</script>
