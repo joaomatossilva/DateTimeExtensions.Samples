@@ -9,10 +9,11 @@ using System.Globalization;
 using DateTimeExtensions.Sample.Services;
 using DateTimeExtensions.Sample.Models;
 using DateTimeExtensions.Export;
+using DateTimeExtensions.WorkingDays;
 
 namespace DateTimeExtensions.Sample.Controllers {
 	public class CalendarController : Controller {
-		DateTimeCultureInfo dateTimeCultureInfo = new DateTimeCultureInfo();
+	    readonly WorkingDayCultureInfo workingdayCultureInfo = new WorkingDayCultureInfo();
 		private static readonly Calendar GregorianCalendar = new GregorianCalendar();
 		//
 		// GET: /Calendar/
@@ -40,7 +41,7 @@ namespace DateTimeExtensions.Sample.Controllers {
 		}
 
 		public ActionResult VacationsSuggestions(int year) {
-			var vacationsService = new VacationsSuggestionsService(new DateTimeCultureInfo());
+			var vacationsService = new VacationsSuggestionsService();
 			var suggestionsViewModel = vacationsService.GetSuggestions(year, 16)
 				.GroupBy(s => s.TotalDays)
 				.Select(t => new VacationsSuggestionsViewModel {
@@ -60,7 +61,7 @@ namespace DateTimeExtensions.Sample.Controllers {
 			var holFormat = ExportHolidayFormatLocator.LocateByType(ExportType.OfficeHolidays);
 			var memoryStream = new MemoryStream();
 			var writer = new StreamWriter(memoryStream);
-			holFormat.Export(new DateTimeCultureInfo(), year, writer);
+            holFormat.Export(new WorkingDayCultureInfo(), year, writer);
 			writer.Flush();
 			memoryStream.Position = 0;
 			return File(memoryStream, "text/plain", "outlook.hol");
@@ -84,8 +85,8 @@ namespace DateTimeExtensions.Sample.Controllers {
 				var day = new DateTime(year, month, i);
 				yield return new DayViewModel {
 					DayText = i.ToString(),
-					IsWorkingDay = day.IsWorkingDay(dateTimeCultureInfo),
-					IsHoliday = day.IsHoliday(dateTimeCultureInfo)
+					IsWorkingDay = day.IsWorkingDay(workingdayCultureInfo),
+					IsHoliday = day.IsHoliday(workingdayCultureInfo)
 				};
 			}
 		}

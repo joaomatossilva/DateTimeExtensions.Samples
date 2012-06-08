@@ -2,43 +2,40 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using DateTimeExtensions.WorkingDays;
 
 namespace DateTimeExtensions.Sample.Services {
 	public class VacationsSuggestionsService {
-		private readonly DateTimeCultureInfo dateTimeCultureInfo;
-
-		public VacationsSuggestionsService(DateTimeCultureInfo dateTimeCultureInfo) {
-			this.dateTimeCultureInfo = dateTimeCultureInfo;
-		}
 
 		public IEnumerable<VacationPeriod> GetSuggestions(int year, int maxDaysForward) {
 			DateTime date = new DateTime(year, 1, 1);
 			List<VacationPeriod> results = new List<VacationPeriod>();
-			DateTimeCultureInfo dateTimeCultureInfo = new DateTimeCultureInfo();
+			WorkingDayCultureInfo workingdayCultureInfo = new WorkingDayCultureInfo();
 			do {
-				results.AddRange(CrawlPeriod(dateTimeCultureInfo, date, maxDaysForward));
+				results.AddRange(CrawlPeriod(workingdayCultureInfo, date, maxDaysForward));
 				date = date.AddDays(1);
 			} while (date.Year <= year);
 
 			return results.Where(s => s.Score < .50);			
 		}
 
-		private static IEnumerable<VacationPeriod> CrawlPeriod(DateTimeCultureInfo dateTimeCultureInfo, DateTime date, int maxDaysForward) {
+		private static IEnumerable<VacationPeriod> CrawlPeriod(WorkingDayCultureInfo workingdayCultureInfo, DateTime date, int maxDaysForward)
+		{
 			//Start crawling only if the last 2 days are working days
-			if (date.IsWorkingDay(dateTimeCultureInfo) || !date.AddDays(-1).IsWorkingDay(dateTimeCultureInfo) || !date.AddDays(-2).IsWorkingDay(dateTimeCultureInfo)) {
+			if (date.IsWorkingDay(workingdayCultureInfo) || !date.AddDays(-1).IsWorkingDay(workingdayCultureInfo) || !date.AddDays(-2).IsWorkingDay(workingdayCultureInfo)) {
 				yield break;
 			}
 			int workingDaysCount = date.IsWorkingDay() ? 1 : 0;
 			for (int i = 1; i <= maxDaysForward; i++) {
 				DateTime endDate = date.AddDays(i);
-				if (endDate.IsWorkingDay(dateTimeCultureInfo)) {
+				if (endDate.IsWorkingDay(workingdayCultureInfo)) {
 					workingDaysCount++;
 				}
 				if (workingDaysCount == 0) {
 					continue;
 				}
 				//end crawl only when the next 2 days are working days
-				if (endDate.IsWorkingDay(dateTimeCultureInfo) || !endDate.AddDays(1).IsWorkingDay(dateTimeCultureInfo) || !endDate.AddDays(2).IsWorkingDay(dateTimeCultureInfo)) {
+				if (endDate.IsWorkingDay(workingdayCultureInfo) || !endDate.AddDays(1).IsWorkingDay(workingdayCultureInfo) || !endDate.AddDays(2).IsWorkingDay(workingdayCultureInfo)) {
 					continue;
 				}
 				yield return new VacationPeriod { StartDate = date, EndDate = endDate, WorkingDays = workingDaysCount };

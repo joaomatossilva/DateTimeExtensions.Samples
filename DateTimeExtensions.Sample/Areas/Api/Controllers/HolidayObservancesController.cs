@@ -5,13 +5,14 @@ using System.Net.Http;
 using System.Web.Http;
 
 using DateTimeExtensions.Sample.Areas.Api.Models;
+using DateTimeExtensions.WorkingDays;
 
 namespace DateTimeExtensions.Sample.Areas.Api.Controllers {
 	public class HolidayObservancesController : ApiController {
 
 		public IEnumerable<HolidayObservance> Get(string locale, int year) {
-			var dateTimeCultureInfo = new DateTimeCultureInfo(locale);
-			var holidays = dateTimeCultureInfo.Holidays;
+			var workingdayCultureInfo = new WorkingDayCultureInfo(locale);
+			var holidays = workingdayCultureInfo.Holidays;
 			var observances =
 				holidays.Select(
 					o =>

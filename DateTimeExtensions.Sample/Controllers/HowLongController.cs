@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using DateTimeExtensions.Sample.Models;
 using DateTimeExtensions;
+using DateTimeExtensions.WorkingDays;
 
 namespace DateTimeExtensions.Sample.Controllers {
 	public class HowLongController : Controller {
