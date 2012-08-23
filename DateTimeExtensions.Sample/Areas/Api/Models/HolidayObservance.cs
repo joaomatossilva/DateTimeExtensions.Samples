@@ -7,6 +7,6 @@ namespace DateTimeExtensions.Sample.Areas.Api.Models {
 	public class HolidayObservance {
 		public string Name { get; set; }
 
-		public string ObservanceDate { get; set; }
+		public DateTime? ObservanceDate { get; set; }
 	}
 }

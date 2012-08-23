@@ -17,9 +17,9 @@ namespace DateTimeExtensions.Sample.Areas.Api.Controllers {
 				holidays.Select(
 					o =>
 					new HolidayObservance {
-					                      	Name = o.Name,
-					                      	ObservanceDate = o.GetInstance(year).HasValue ? o.GetInstance(year).Value.ToShortDateString() : "(no observance)"
-					                      });
+						Name = o.Name,
+						ObservanceDate = o.GetInstance(year)
+					});
 			return observances;
 		}
 
