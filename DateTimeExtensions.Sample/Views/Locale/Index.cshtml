@@ -3,6 +3,7 @@
 	<div id="selectLocalePlaceHolder"></div>
 </div>
 <script type="text/javascript">
+   Globalize.culture('@ViewBag.Locale');
     $("#selectLocalePlaceHolder").load("@Url.Action("SelectLocale")", function() {
         $("#selectLocalePlaceHolder").dialog({
             title: "Select a Locale",

@@ -15,9 +15,13 @@
     function getHolidaysObservances() {
         $.getJSON("Api/HolidayObservances/@ViewBag.Locale/@ViewBag.CurrentYear",
             function (data) {
+                Globalize.culture('@ViewBag.Locale');
                 $('#holidaysListing > tbody').empty();
                 $.each(data, function (key, val) {
-                    var row = '<td>' + val.ObservanceDate + '</td><td>' + val.Name + '</td>';
+                    var date = new Date(val.ObservanceDate);
+                    var formattedDate = Globalize.format(date, 'd');
+                    console.log(Globalize.culture().name);
+                    var row = '<td>' + formattedDate + '</td><td>' + val.Name + '</td>';
                     $('<tr/>', { html: row })
                         .appendTo($('#holidaysListing > tbody'));
                 });
