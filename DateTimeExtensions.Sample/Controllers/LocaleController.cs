@@ -37,7 +37,8 @@ namespace DateTimeExtensions.Sample.Controllers {
 				new SelectLocaleViewModel { LocaleName = "en-ZA", HasHolidays = true },
 				new SelectLocaleViewModel { LocaleName = "fr-CA", HasHolidays = true },
 				new SelectLocaleViewModel { LocaleName = "ar-SA", HasHolidays = true },
-				new SelectLocaleViewModel { LocaleName = "it-IT", HasHolidays = true }
+				new SelectLocaleViewModel { LocaleName = "it-IT", HasHolidays = true },
+                new SelectLocaleViewModel { LocaleName = "en-NZ", HasHolidays = true }
 			};
 			return PartialView(locales);
 		}
