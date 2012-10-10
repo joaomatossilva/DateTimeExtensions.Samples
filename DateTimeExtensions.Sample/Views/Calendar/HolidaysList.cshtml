@@ -18,8 +18,11 @@
                 Globalize.culture('@ViewBag.Locale');
                 $('#holidaysListing > tbody').empty();
                 $.each(data, function (key, val) {
-                    var date = new Date(val.ObservanceDate);
-                    var formattedDate = Globalize.format(date, 'd');
+                    var formattedDate = '';
+                    if (val.ObservanceDate != null) {
+                        var date = new Date(val.ObservanceDate);
+                        formattedDate = Globalize.format(date, 'd');
+                    }
                     console.log(Globalize.culture().name);
                     var row = '<td>' + formattedDate + '</td><td>' + val.Name + '</td>';
                     $('<tr/>', { html: row })
