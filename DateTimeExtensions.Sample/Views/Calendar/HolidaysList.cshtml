@@ -23,7 +23,6 @@
                         var date = new Date(val.ObservanceDate);
                         formattedDate = Globalize.format(date, 'd');
                     }
-                    console.log(Globalize.culture().name);
                     var row = '<td>' + formattedDate + '</td><td>' + val.Name + '</td>';
                     $('<tr/>', { html: row })
                         .appendTo($('#holidaysListing > tbody'));
