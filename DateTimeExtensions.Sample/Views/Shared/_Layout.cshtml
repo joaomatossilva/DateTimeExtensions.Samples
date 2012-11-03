@@ -44,7 +44,10 @@
 		<div id="container">
 			<div id="header">
 				<div id="top">
-					<h1><a href="#">DateTime Extensions Samples</a></h1>
+                    <h1><a href="#">DateTime Extensions Samples</a></h1>
+                    @{
+                        Html.RenderAction("Index", "Version");
+                    }
 					<span class="clearFix"></span>
 				</div>
 				<ul id="menu">

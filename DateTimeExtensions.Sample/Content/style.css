@@ -28,7 +28,7 @@ div#container {width:980px; position:relative; min-height: 100%; height: auto !i
 .push {height:133px;}
 
 /** HEADER AND NAVIGATION **/
-div#header {padding-top:20px;}
+div#header {padding-top:10px;}
 	/** logo, which is a typographical h1 element (you can edit this part if you want to replace with your logo graphic) **/
 	div#header h1 {font-size:250%; text-transform:uppercase; letter-spacing:-1px; font-weight:bold; 
 	/** mac safari & firefox hack */height:39px;/**/}
@@ -41,7 +41,8 @@ div#header {padding-top:20px;}
 	p#userbox a:hover {color:#fff;}
 	p#userbox small {display:block; margin-top:5px; color:#8d9599; font-size:0.9em;}
 	
-	div#top {margin-bottom:18px;}
+	div#top {margin-bottom:13px;}
+    div#top span { color: white;}
 	
 	/** menu **/
 	ul#menu {width:600px; float:left;}

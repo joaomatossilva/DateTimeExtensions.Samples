@@ -134,6 +134,7 @@
     <Compile Include="Controllers\HowLongController.cs" />
     <Compile Include="Controllers\LocaleController.cs" />
     <Compile Include="Controllers\TheBigDayController.cs" />
+    <Compile Include="Controllers\VersionController.cs" />
     <Compile Include="Filters\CustomLocaleFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -641,6 +642,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\TheBigDay\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Version\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
