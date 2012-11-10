@@ -43,6 +43,7 @@ div#header {padding-top:10px;}
 	
 	div#top {margin-bottom:13px;}
     div#top span { color: white;}
+    div#top span a { color: white;}
 	
 	/** menu **/
 	ul#menu {width:600px; float:left;}
