@@ -19,7 +19,9 @@ namespace DateTimeExtensions.Sample.Areas.Api.Controllers {
 					new HolidayObservance {
 						Name = o.Name,
 						ObservanceDate = o.GetInstance(year)
-					});
+					})
+                    .Where(h => h.ObservanceDate.HasValue)
+                    .OrderBy(h => h.ObservanceDate);
 			return observances;
 		}
 
