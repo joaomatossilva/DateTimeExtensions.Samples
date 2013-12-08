@@ -46,9 +46,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DateTimeExtensions, Version=3.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="DateTimeExtensions, Version=3.3.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\DateTimeExtensions.3.2.1.0\lib\net35\DateTimeExtensions.dll</HintPath>
+      <HintPath>..\packages\DateTimeExtensions.3.3.0.0\lib\net35\DateTimeExtensions.dll</HintPath>
     </Reference>
     <Reference Include="Enyim.Caching">
       <HintPath>..\packages\EnyimMemcached.2.11\lib\net35\Enyim.Caching.dll</HintPath>
