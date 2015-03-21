@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 
 using DateTimeExtensions.Sample.Filters;
+using DateTimeExtensions.Sample.LocalizedRouting;
 
 namespace DateTimeExtensions.Sample {
 	// Note: For instructions on enabling IIS6 or IIS7 classic mode, 
@@ -19,17 +20,15 @@ namespace DateTimeExtensions.Sample {
 		public static void RegisterRoutes(RouteCollection routes) {
 			routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-			routes.MapRoute(
-				"Calendar", // Route name
-				"Calendar/{action}/{year}", // URL with parameters
-				new { controller = "Calendar", action = "Index", year = DateTime.Now.Year } // Parameter defaults
-			);
+            routes.MapLocalizeRoute("Default",
+                url: "{culture}/{controller}/{action}/{year}",
+                defaults: new { controller = "Calendar", action = "Index", year = UrlParameter.Optional },
+                constraints: new { culture = "[a-zA-Z]{2}-[a-zA-Z]{2}" });
 
-			routes.MapRoute(
-				"Default", // Route name
-				"{controller}/{action}/{id}", // URL with parameters
-				new { controller = "Calendar", action = "Index", id = UrlParameter.Optional, year = DateTime.Now.Year } // Parameter defaults
-			);
+		    routes.MapRouteToLocalizeRedirect("RedirectToLocalize",
+		        url: "{controller}/{action}/{year}",
+                defaults: new { controller = "Calendar", action = "Index", year = UrlParameter.Optional }
+            );
 
 		}
 

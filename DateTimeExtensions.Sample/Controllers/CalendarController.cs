@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 using DateTimeExtensions.Sample.Models.Calendar;
 using System.Globalization;
 using DateTimeExtensions.Sample.Services;
@@ -18,13 +19,18 @@ namespace DateTimeExtensions.Sample.Controllers {
 		//
 		// GET: /Calendar/
 
-		public ActionResult Index(int year) {
+		public ActionResult Index(int? year) {
+		    if (year == null)
+		    {
+                return RedirectToAction("Index", new { year = DateTime.Today.Year });
+		    }
+
 			var years = new List<int>();
 			for (int i = 0; i < 5; i++) {
 				years.Add(DateTime.Now.Year - 2 + i);
 			}
-			if (!years.Contains(year)) {
-				years.Add(year);
+			if (!years.Contains((int)year)) {
+				years.Add((int)year);
 			}
 			ViewBag.Locale = System.Threading.Thread.CurrentThread.CurrentCulture.Name;
 			ViewBag.CurrentYear = year;
@@ -32,7 +38,13 @@ namespace DateTimeExtensions.Sample.Controllers {
 			return View();
 		}
 
-		public ActionResult YearCalendar(int year) {
+        [HttpPost]
+	    public ActionResult Index(int year)
+	    {
+            return RedirectToAction("Index", new { year });
+	    }
+
+	    public ActionResult YearCalendar(int year) {
 			var yearViewModel = new YearViewModel {
 				YearName = year.ToString(),
 				Months = BuildMonthsViewModel(year)

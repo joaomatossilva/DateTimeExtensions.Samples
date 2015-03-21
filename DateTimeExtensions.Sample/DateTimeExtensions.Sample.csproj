@@ -139,6 +139,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="LocalizedRouting\LocalizationRedirectRouteHandler.cs" />
+    <Compile Include="LocalizedRouting\LocalizedRouteHandler.cs" />
+    <Compile Include="LocalizedRouting\RedirectHandler.cs" />
+    <Compile Include="LocalizedRouting\RouteCollectionExtensions.cs" />
     <Compile Include="Models\Calendar\DayViewModel.cs" />
     <Compile Include="Models\Calendar\MonthViewModel.cs" />
     <Compile Include="Models\Calendar\YearViewModel.cs" />

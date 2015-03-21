@@ -23,11 +23,6 @@ namespace DateTimeExtensions.Sample.Controllers {
 			return PartialView(locales);
 		}
 
-		public ActionResult SetLocale(string localeName) {
-			Session["localeName"] = localeName;
-			return this.Redirect("/");
-		}
-
         private IEnumerable<SelectLocaleViewModel> DiscoverLocales()
         {
             var holidaysLocales = new List<string>();

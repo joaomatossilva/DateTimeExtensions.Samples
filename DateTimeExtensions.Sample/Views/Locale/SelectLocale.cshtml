@@ -10,7 +10,7 @@
 	<tbody>
 		@foreach (var locale in Model) {
 			<tr>
-				<td>@Html.ActionLink(locale.LocaleName, "SetLocale", new { localeName = locale.LocaleName })</td>
+				<td><a href="javascript:changeLocale('@locale.LocaleName')" onclick="">@locale.LocaleName</a></td>
 				<td>@locale.HasHolidays</td>
 				<td>@locale.HasNaturalText</td>
 			</tr>
@@ -19,4 +19,13 @@
 </table>
 <script type="text/javascript">
     $("table > tbody tr:odd").addClass("odd");
+
+    function changeLocale(locale) {
+        var currentUrl = window.location.href;
+        if (currentUrl.indexOf("?") > 0) {
+            window.location = currentUrl + "&changeCulture=" + locale;
+        } else {
+            window.location = currentUrl + "?changeCulture=" + locale;
+        }
+    }
 </script>
