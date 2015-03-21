@@ -13,7 +13,7 @@
 <script type="text/javascript">
 
     function getHolidaysObservances() {
-        $.getJSON("Api/HolidayObservances/@ViewBag.Locale/@ViewBag.CurrentYear?language=@ViewBag.Locale",
+        $.getJSON("/Api/HolidayObservances/@ViewBag.Locale/@ViewBag.CurrentYear?language=@ViewBag.Locale",
             function (data) {
                 Globalize.culture('@ViewBag.Locale');
                 $('#holidaysListing > tbody').empty();
